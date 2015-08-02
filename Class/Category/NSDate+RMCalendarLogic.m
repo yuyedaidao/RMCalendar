@@ -100,10 +100,10 @@
 - (NSDateComponents *)YMDComponents
 {
     return [[NSCalendar currentCalendar] components:
-            NSYearCalendarUnit|
-            NSMonthCalendarUnit|
-            NSDayCalendarUnit|
-            NSWeekdayCalendarUnit fromDate:self];
+            NSCalendarUnitYear|
+            NSCalendarUnitMonth|
+            NSCalendarUnitDay|
+            NSCalendarUnitWeekday fromDate:self];
 }
 
 
