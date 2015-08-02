@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55696D2F1B6E5715006F8A34 /* YQDutyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55696D2E1B6E5715006F8A34 /* YQDutyModel.m */; };
 		EE4A4FF51B43E881004B6590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FF41B43E881004B6590 /* main.m */; };
 		EE4A4FF81B43E881004B6590 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FF71B43E881004B6590 /* AppDelegate.m */; };
 		EE4A4FFB1B43E881004B6590 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FFA1B43E881004B6590 /* ViewController.m */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55696D2D1B6E5715006F8A34 /* YQDutyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQDutyModel.h; sourceTree = "<group>"; };
+		55696D2E1B6E5715006F8A34 /* YQDutyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQDutyModel.m; sourceTree = "<group>"; };
 		EE4A4FEF1B43E881004B6590 /* RMCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE4A4FF31B43E881004B6590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE4A4FF41B43E881004B6590 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				EE4A50261B43E8EF004B6590 /* RMCalendarModel.m */,
 				EEDB721B1B4A1EA3003F6AC6 /* TicketModel.h */,
 				EEDB721C1B4A1EA3003F6AC6 /* TicketModel.m */,
+				55696D2D1B6E5715006F8A34 /* YQDutyModel.h */,
+				55696D2E1B6E5715006F8A34 /* YQDutyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 				EEDB72361B4A4A0C003F6AC6 /* NSObject+MJProperty.m in Sources */,
 				EE4A503C1B43E8EF004B6590 /* UIView+CustomFrame.m in Sources */,
 				EEDB72331B4A4A0C003F6AC6 /* MJType.m in Sources */,
+				55696D2F1B6E5715006F8A34 /* YQDutyModel.m in Sources */,
 				EE4A504D1B43E8EF004B6590 /* RMCalendarMonthHeaderView.m in Sources */,
 				EEDB72321B4A4A0C003F6AC6 /* MJProperty.m in Sources */,
 				EEDB72301B4A4A0C003F6AC6 /* MJConst.m in Sources */,

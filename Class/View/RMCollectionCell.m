@@ -30,10 +30,9 @@
  *  选中的背景图片
  */
 @property (nonatomic, weak) UIImageView *selectImageView;
-/**
- *  票价   此处可根据项目需求自行修改
- */
-@property (nonatomic, weak) UILabel *price;
+
+///表明是早班还是晚班的label
+@property (nonatomic, strong) UILabel *morningNightLabel;
 
 
 @end
@@ -66,25 +65,21 @@
     self.chineseCalendar = chineseCalendar;
     [self addSubview:chineseCalendar];
     
-#warning 价格Label 可根据需求修改
-    UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(0, dayLabel.height, self.bounds.size.width, dayLabel.height)];
-    price.font = kFont(9);
-    price.textAlignment = NSTextAlignmentCenter;
-    self.price = price;
-    [self addSubview:price];
+
+    _morningNightLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, CGRectGetMaxY(self.dayLabel.frame)+5, self.bounds.size.width*0.3,self.bounds.size.width*0.3 )];
+    self.morningNightLabel.layer.cornerRadius = CGRectGetWidth(self.morningNightLabel.bounds)/2;
+    self.morningNightLabel.clipsToBounds = YES;
+    self.morningNightLabel.font = [UIFont systemFontOfSize:12];
+    self.morningNightLabel.textAlignment = NSTextAlignmentCenter;
+    self.morningNightLabel.textColor = [UIColor whiteColor];
+    self.morningNightLabel.backgroundColor = [UIColor orangeColor];
+    [self addSubview:self.morningNightLabel];
+    
 }
 
 - (void)setModel:(RMCalendarModel *)model {
     _model = model;
-    //没有剩余票数
-    if (!model.ticketModel.ticketCount || model.style == CellDayTypePast) {
-        self.price.hidden = YES;
-        model.isEnable ? model.style : model.style != CellDayTypeEmpty ? model.style = CellDayTypePast : model.style;
-    } else {
-        self.price.hidden = NO;
-        self.price.textColor = [UIColor orangeColor];
-        self.price.text = [NSString stringWithFormat:@"￥%.1f",model.ticketModel.ticketPrice];
-    }
+
     self.chineseCalendar.text = model.Chinese_calendar;
     self.chineseCalendar.hidden = NO;
     /**
@@ -155,7 +150,7 @@
             self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CalendarNormalDate"]];
             self.dayLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)model.day];
             self.dayLabel.textColor = [UIColor whiteColor];
-            self.price.textColor = [UIColor whiteColor];
+           
             self.chineseCalendar.textColor = [UIColor whiteColor];
             break;
             

@@ -234,14 +234,14 @@
         }
     }
 #warning for进行模型日期匹配,将价格和日期关联，此处可根据项目需求进行修改
-    for (int i = 0; i < self.priceModelArr.count; i++) {
-        TicketModel *tModel = self.priceModelArr[i];
-        if (tModel.year == model.year &
-            tModel.month == model.month &
-            tModel.day == model.day) {
-            model.ticketModel = tModel;
-        }
-    }
+//    for (int i = 0; i < self.priceModelArr.count; i++) {
+//        TicketModel *tModel = self.priceModelArr[i];
+//        if (tModel.year == model.year &
+//            tModel.month == model.month &
+//            tModel.day == model.day) {
+//            model.ticketModel = tModel;
+//        }
+//    }
     
     
     //===================================
