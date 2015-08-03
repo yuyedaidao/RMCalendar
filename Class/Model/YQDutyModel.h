@@ -30,8 +30,13 @@ typedef NS_ENUM(NSUInteger, YQDutyType) {
 @property (nonatomic, assign) YQDutyType type;
 
 
+/**
+ *  早班人员，正常周末班也归到早班
+ */
 @property (nonatomic, strong) NSArray *morningUserArray;
-
+/**
+ *  晚班人员，或者周末班中的全天班
+ */
 @property (nonatomic, strong) NSArray *nightUserArray;
 
 @end

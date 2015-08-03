@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="passwordTF" destination="ozw-3q-hF7" id="JqZ-1R-j44"/>
+                <outlet property="userNameTF" destination="D3h-Yr-DMb" id="12g-OQ-4ha"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D3h-Yr-DMb">
+                    <rect key="frame" x="102" y="195" width="396" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ozw-3q-hF7">
+                    <rect key="frame" x="102" y="262" width="396" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blQ-xQ-SA4">
+                    <rect key="frame" x="280" y="335" width="40" height="28"/>
+                    <color key="backgroundColor" red="0.12941176469999999" green="0.75294117650000003" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    <state key="normal" title="登录">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="login:" destination="-1" eventType="touchUpInside" id="adZ-ki-sZc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.56377035643378881" green="1" blue="0.98907191574428877" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="D3h-Yr-DMb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="195" id="6l3-19-oHO"/>
+                <constraint firstItem="D3h-Yr-DMb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="102" id="HxH-SK-LPW"/>
+                <constraint firstItem="ozw-3q-hF7" firstAttribute="width" secondItem="D3h-Yr-DMb" secondAttribute="width" id="OmL-Sd-Nch"/>
+                <constraint firstItem="ozw-3q-hF7" firstAttribute="top" secondItem="D3h-Yr-DMb" secondAttribute="bottom" constant="37" id="b6g-Tk-HHR"/>
+                <constraint firstAttribute="trailing" secondItem="D3h-Yr-DMb" secondAttribute="trailing" constant="102" id="fgb-9A-bdU"/>
+                <constraint firstItem="ozw-3q-hF7" firstAttribute="centerX" secondItem="blQ-xQ-SA4" secondAttribute="centerX" id="hQg-wS-GYV"/>
+                <constraint firstItem="ozw-3q-hF7" firstAttribute="centerX" secondItem="D3h-Yr-DMb" secondAttribute="centerX" id="o33-Db-m0A"/>
+                <constraint firstItem="blQ-xQ-SA4" firstAttribute="top" secondItem="ozw-3q-hF7" secondAttribute="bottom" constant="43" id="vNl-jA-j61"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

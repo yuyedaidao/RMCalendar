@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		219792FD1B6F46640005EFC8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219792FB1B6F46640005EFC8 /* LoginViewController.m */; };
+		219792FE1B6F46640005EFC8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219792FC1B6F46640005EFC8 /* LoginViewController.xib */; };
+		219793091B6F71210005EFC8 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 219793081B6F71210005EFC8 /* Constants.h */; };
+		2197930D1B6FA0EE0005EFC8 /* LoginSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197930C1B6FA0EE0005EFC8 /* LoginSegue.m */; };
 		55696D2F1B6E5715006F8A34 /* YQDutyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55696D2E1B6E5715006F8A34 /* YQDutyModel.m */; };
+		D534C7B2BB09C68D5AFBBFF0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D60C1DF8267FFB285847EF /* libPods.a */; };
 		EE4A4FF51B43E881004B6590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FF41B43E881004B6590 /* main.m */; };
 		EE4A4FF81B43E881004B6590 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FF71B43E881004B6590 /* AppDelegate.m */; };
 		EE4A4FFB1B43E881004B6590 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FFA1B43E881004B6590 /* ViewController.m */; };
@@ -58,8 +63,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		219792FA1B6F46640005EFC8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		219792FB1B6F46640005EFC8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		219792FC1B6F46640005EFC8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		219793081B6F71210005EFC8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2197930B1B6FA0EE0005EFC8 /* LoginSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSegue.h; sourceTree = "<group>"; };
+		2197930C1B6FA0EE0005EFC8 /* LoginSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSegue.m; sourceTree = "<group>"; };
 		55696D2D1B6E5715006F8A34 /* YQDutyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQDutyModel.h; sourceTree = "<group>"; };
 		55696D2E1B6E5715006F8A34 /* YQDutyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQDutyModel.m; sourceTree = "<group>"; };
+		68D60C1DF8267FFB285847EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AC6753050F3FF468FB8A1F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AE8BF96DAF43EB0F9EA76D5F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE4A4FEF1B43E881004B6590 /* RMCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE4A4FF31B43E881004B6590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE4A4FF41B43E881004B6590 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -77,8 +91,8 @@
 		EE4A501B1B43E8EF004B6590 /* NSDate+RMCalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RMCalendarLogic.m"; sourceTree = "<group>"; };
 		EE4A501C1B43E8EF004B6590 /* UIView+CustomFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomFrame.h"; sourceTree = "<group>"; };
 		EE4A501D1B43E8EF004B6590 /* UIView+CustomFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomFrame.m"; sourceTree = "<group>"; };
-		EE4A501F1B43E8EF004B6590 /* RMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCalendarController.h; sourceTree = "<group>"; };
-		EE4A50201B43E8EF004B6590 /* RMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCalendarController.m; sourceTree = "<group>"; };
+		EE4A501F1B43E8EF004B6590 /* RMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMCalendarController.h; path = ../Class/Controller/RMCalendarController.h; sourceTree = "<group>"; };
+		EE4A50201B43E8EF004B6590 /* RMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMCalendarController.m; path = ../Class/Controller/RMCalendarController.m; sourceTree = "<group>"; };
 		EE4A50221B43E8EF004B6590 /* RMCalendarLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCalendarLogic.h; sourceTree = "<group>"; };
 		EE4A50231B43E8EF004B6590 /* RMCalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCalendarLogic.m; sourceTree = "<group>"; };
 		EE4A50251B43E8EF004B6590 /* RMCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCalendarModel.h; sourceTree = "<group>"; };
@@ -128,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D534C7B2BB09C68D5AFBBFF0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,12 +156,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10634D00866BEB13D912428E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE8BF96DAF43EB0F9EA76D5F /* Pods.debug.xcconfig */,
+				81AC6753050F3FF468FB8A1F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		219793061B6F70150005EFC8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				219793081B6F71210005EFC8 /* Constants.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		2197930A1B6FA00D0005EFC8 /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+				2197930B1B6FA0EE0005EFC8 /* LoginSegue.h */,
+				2197930C1B6FA0EE0005EFC8 /* LoginSegue.m */,
+			);
+			name = Segue;
+			sourceTree = "<group>";
+		};
+		4AD8FCECABC0665DB49C84F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68D60C1DF8267FFB285847EF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EE4A4FE61B43E881004B6590 = {
 			isa = PBXGroup;
 			children = (
 				EE4A4FF11B43E881004B6590 /* RMCalendar */,
 				EE4A500B1B43E881004B6590 /* RMCalendarTests */,
 				EE4A4FF01B43E881004B6590 /* Products */,
+				10634D00866BEB13D912428E /* Pods */,
+				4AD8FCECABC0665DB49C84F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,12 +213,15 @@
 		EE4A4FF11B43E881004B6590 /* RMCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				219793061B6F70150005EFC8 /* Common */,
 				EEDB721E1B4A4A0C003F6AC6 /* MJExtension */,
 				EE4A50181B43E8EF004B6590 /* Class */,
 				EE4A4FF61B43E881004B6590 /* AppDelegate.h */,
 				EE4A4FF71B43E881004B6590 /* AppDelegate.m */,
 				EE4A4FF91B43E881004B6590 /* ViewController.h */,
 				EE4A4FFA1B43E881004B6590 /* ViewController.m */,
+				EE4A501F1B43E8EF004B6590 /* RMCalendarController.h */,
+				EE4A50201B43E8EF004B6590 /* RMCalendarController.m */,
 				EE4A4FFC1B43E881004B6590 /* Main.storyboard */,
 				EE4A4FFF1B43E881004B6590 /* Images.xcassets */,
 				EE4A50011B43E881004B6590 /* LaunchScreen.xib */,
@@ -206,6 +260,7 @@
 		EE4A50181B43E8EF004B6590 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				2197930A1B6FA00D0005EFC8 /* Segue */,
 				EE4A50191B43E8EF004B6590 /* Category */,
 				EE4A501E1B43E8EF004B6590 /* Controller */,
 				EE4A50211B43E8EF004B6590 /* Logic */,
@@ -230,8 +285,9 @@
 		EE4A501E1B43E8EF004B6590 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EE4A501F1B43E8EF004B6590 /* RMCalendarController.h */,
-				EE4A50201B43E8EF004B6590 /* RMCalendarController.m */,
+				219792FA1B6F46640005EFC8 /* LoginViewController.h */,
+				219792FB1B6F46640005EFC8 /* LoginViewController.m */,
+				219792FC1B6F46640005EFC8 /* LoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,9 +377,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE4A50121B43E881004B6590 /* Build configuration list for PBXNativeTarget "RMCalendar" */;
 			buildPhases = (
+				FF84C5D51FC4592B60127ED9 /* Check Pods Manifest.lock */,
 				EE4A4FEB1B43E881004B6590 /* Sources */,
 				EE4A4FEC1B43E881004B6590 /* Frameworks */,
 				EE4A4FED1B43E881004B6590 /* Resources */,
+				B6BF4B7173A3D3792FBEAEA1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,6 +421,7 @@
 				TargetAttributes = {
 					EE4A4FEE1B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = GP4MMMES25;
 					};
 					EE4A50071B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
@@ -402,6 +461,7 @@
 				EE4A50411B43E8EF004B6590 /* CalendarNormalDate.png in Resources */,
 				EE4A50431B43E8EF004B6590 /* CalendarPreviousMonth@2x.png in Resources */,
 				EE4A50441B43E8EF004B6590 /* CalendarRow.png in Resources */,
+				219792FE1B6F46640005EFC8 /* LoginViewController.xib in Resources */,
 				EE4A50491B43E8EF004B6590 /* CalendarSelectedDate@2x.png in Resources */,
 				EE4A50421B43E8EF004B6590 /* CalendarPreviousMonth.png in Resources */,
 				EE4A504A1B43E8EF004B6590 /* CalendarTodaysDate.png in Resources */,
@@ -422,16 +482,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B6BF4B7173A3D3792FBEAEA1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF84C5D51FC4592B60127ED9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EE4A4FEB1B43E881004B6590 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EEDB72341B4A4A0C003F6AC6 /* NSObject+MJCoding.m in Sources */,
+				2197930D1B6FA0EE0005EFC8 /* LoginSegue.m in Sources */,
 				EE4A503E1B43E8EF004B6590 /* RMCalendarLogic.m in Sources */,
 				EEDB72311B4A4A0C003F6AC6 /* MJFoundation.m in Sources */,
 				EEDB721D1B4A1EA3003F6AC6 /* TicketModel.m in Sources */,
 				EEDB72351B4A4A0C003F6AC6 /* NSObject+MJKeyValue.m in Sources */,
+				219793091B6F71210005EFC8 /* Constants.h in Sources */,
 				EE4A503B1B43E8EF004B6590 /* NSDate+RMCalendarLogic.m in Sources */,
 				EE4A504E1B43E8EF004B6590 /* RMCollectionCell.m in Sources */,
 				EE4A4FFB1B43E881004B6590 /* ViewController.m in Sources */,
@@ -447,6 +542,7 @@
 				55696D2F1B6E5715006F8A34 /* YQDutyModel.m in Sources */,
 				EE4A504D1B43E8EF004B6590 /* RMCalendarMonthHeaderView.m in Sources */,
 				EEDB72321B4A4A0C003F6AC6 /* MJProperty.m in Sources */,
+				219792FD1B6F46640005EFC8 /* LoginViewController.m in Sources */,
 				EEDB72301B4A4A0C003F6AC6 /* MJConst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,8 +602,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Haodong Chi (J2Q67UL82P)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haodong Chi (J2Q67UL82P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -550,7 +646,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Haodong Chi (J2Q67UL82P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -573,8 +669,10 @@
 		};
 		EE4A50131B43E881004B6590 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE8BF96DAF43EB0F9EA76D5F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RMCalendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,8 +681,10 @@
 		};
 		EE4A50141B43E881004B6590 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81AC6753050F3FF468FB8A1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RMCalendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

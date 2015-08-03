@@ -44,7 +44,7 @@ typedef void (^CalendarBlock)(RMCalendarModel *model);
 /**
  *  展示类型
  */
-@property(nonatomic, assign) CalendarShowType type;
+@property(nonatomic, assign)  CalendarShowType type;
 /**
  *  用于存放价格模型数组
  */
