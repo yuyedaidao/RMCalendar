@@ -9,8 +9,7 @@
 #import "RMCollectionCell.h"
 #import "UIView+CustomFrame.h"
 #import "RMCalendarModel.h"
-
-#import "TicketModel.h"
+#import "Helper.h"
 
 #define kFont(x) [UIFont systemFontOfSize:x]
 #define COLOR_HIGHLIGHT ([UIColor redColor])
@@ -73,6 +72,7 @@
     self.morningNightLabel.textAlignment = NSTextAlignmentCenter;
     self.morningNightLabel.textColor = [UIColor whiteColor];
     self.morningNightLabel.backgroundColor = [UIColor orangeColor];
+
     [self addSubview:self.morningNightLabel];
     
 }
@@ -82,6 +82,37 @@
 
     self.chineseCalendar.text = model.Chinese_calendar;
     self.chineseCalendar.hidden = NO;
+    
+    if(model.dutyModel){
+        __block BOOL findFlag = NO;
+        [model.dutyModel.nightUserArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            if([[Helper defaultHelper].user.name isEqualToString:obj]){
+                self.morningNightLabel.text = @"晚";
+                findFlag = YES;
+                *stop = YES;
+            }
+        }];
+        if(!findFlag){
+            
+            [model.dutyModel.morningUserArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                if([[Helper defaultHelper].user.name isEqualToString:obj]){
+
+                    if(model.dutyModel.type == YQDutyTypeWorkday){
+                        self.morningNightLabel.text = @"早";
+                    }else{
+                        self.morningNightLabel.text = @"周";
+                    }
+                    findFlag = YES;
+                    *stop = YES;
+                }
+            }];
+        }
+        
+        self.morningNightLabel.hidden = !findFlag;
+        
+    }else{
+        self.morningNightLabel.hidden = YES;
+    }
     /**
      *  如果不展示农历，则日期居中
      */
@@ -95,7 +126,7 @@
         case CellDayTypeEmpty:
             self.selectImageView.hidden = YES;
             self.dayLabel.hidden = YES;
-            self.backgroundColor = [UIColor whiteColor];
+            self.backgroundColor = [UIColor clearColor];
             self.chineseCalendar.hidden = YES;
             break;
         case CellDayTypePast:

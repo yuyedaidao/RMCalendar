@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TicketModel.h"
+#import "YQDutyModel.h"
 
 typedef NS_ENUM(NSInteger, CellDayType) {
     CellDayTypeEmpty,   //不显示
@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, CellDayType) {
 /**
  *  票价模型
  */
-@property (nonatomic, strong) TicketModel *ticketModel;
+@property (nonatomic, strong) YQDutyModel *dutyModel;
 /**
  *  判断如果当前日期没有价格，是否可以被点击
  */

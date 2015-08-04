@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - IQKeyboardManager (3.2.4)
   - iToast (0.0.1)
   - JSONKit-NoWarning (1.2)
   - MBProgressHUD (0.9.1)
@@ -28,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - IQKeyboardManager (~> 3.2.4)
   - iToast (~> 0.0.1)
   - JSONKit-NoWarning (~> 1.2)
   - MBProgressHUD (~> 0.9.1)
@@ -36,6 +38,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   iToast: df147188215cc3293bd4366822833f2862fec451
   JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad

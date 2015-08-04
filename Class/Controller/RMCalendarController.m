@@ -237,14 +237,6 @@ static NSString *DayCell = @"DayCell";
     return _calendarLogic;
 }
 
-- (instancetype)initWithDays:(int)days showType:(CalendarShowType)type modelArrar:(NSMutableArray *)modelArr {
-    self = [super init];
-    if (!self) return nil;
-    self.days = days;
-    self.type = type;
-    self.modelArr = modelArr;
-    return self;
-}
 
 - (instancetype)initWithDays:(int)days showType:(CalendarShowType)type {
     self = [super init];
@@ -254,9 +246,6 @@ static NSString *DayCell = @"DayCell";
     return self;
 }
 
-+ (instancetype)calendarWithDays:(int)days showType:(CalendarShowType)type modelArrar:(NSMutableArray *)modelArr {
-    return [[self alloc] initWithDays:days showType:type modelArrar:modelArr];
-}
 
 + (instancetype)calendarWithDays:(int)days showType:(CalendarShowType)type {
     return [[self alloc] initWithDays:days showType:type];
@@ -266,6 +255,7 @@ static NSString *DayCell = @"DayCell";
 
     self.days = 365;
     self.type = CalendarShowTypeSingle;
+    self.displayChineseCalendar = YES;
     
 }
 - (void)setModelArr:(NSMutableArray *)modelArr {
@@ -282,8 +272,10 @@ static NSString *DayCell = @"DayCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 定义Layout对象
-    RMCalendarCollectionViewLayout *layout = [[RMCalendarCollectionViewLayout alloc] init];
+    self.view.frame = [UIScreen mainScreen].bounds;
     
+    
+    RMCalendarCollectionViewLayout *layout = [[RMCalendarCollectionViewLayout alloc] init];
     // 初始化CollectionView
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     
@@ -296,27 +288,25 @@ static NSString *DayCell = @"DayCell";
     
     [self.collectionView registerClass:[RMCalendarMonthHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:MonthHeader];
     
-//    self.collectionView.bounces = NO;//将网格视图的下拉效果关闭
-    
     self.collectionView.delegate = self;//实现网格视图的delegate
-    
     self.collectionView.dataSource = self;//实现网格视图的dataSource
-    
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    
     [self.view addSubview:self.collectionView];
-
-    self.calendarMonth = [self getMonthArrayOfDays:self.days showType:self.type isEnable:self.isEnable modelArr:self.modelArr];
     
+    UIImageView *bgImgView = [[UIImageView alloc] init];
+    bgImgView.image = [UIImage imageNamed:@"morning"];
+    bgImgView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:bgImgView];
+    self.collectionView.backgroundView = bgImgView;
+    
+    self.calendarMonth = [self getMonthArrayOfDays:self.days showType:self.type isEnable:self.isEnable modelArr:nil];
     LoginViewController *login = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     [login setCompleteBlock:^{
         [self loadData];
     }];
-//
-//    LoginSegue *segue = [LoginSegue segueWithIdentifier:@"login" source:self destination:login performHandler:nil];
-//    [segue perform];
+
     [self presentViewController:login animated:YES completion:nil];
-//    [self loadData];
+
 }
 
 
@@ -325,7 +315,7 @@ static NSString *DayCell = @"DayCell";
     NSInteger month = [[NSCalendar currentCalendar] component:NSCalendarUnitMonth fromDate:[NSDate date]];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+
     [manager GET:[NSString stringWithFormat:@"%@%@&moth=%ld",BaseURL,zhibanMethod,month] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSDictionary *dic = [result objectFromJSONString];
@@ -336,6 +326,36 @@ static NSString *DayCell = @"DayCell";
             [self.dataArray removeAllObjects];
             
             NSArray *array = dic[@"details"];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+                    
+                    
+                    YQDutyModel *model = [[YQDutyModel alloc] init];
+                    
+                    NSString *morning = obj[@"zaoban"];
+                    NSString *weekend = obj[@"zhoumoban"];
+                    NSString *night = obj[@"wanban"];
+                    if(weekend.length){
+                        model.type = YQDutyTypeWeekend;
+                        model.morningUserArray = [weekend componentsSeparatedByString:@","];
+                    }else{
+                        model.type = YQDutyTypeWorkday;
+                        model.morningUserArray = [morning componentsSeparatedByString:@","];
+                    }
+                    model.nightUserArray = [night componentsSeparatedByString:@","];
+                    
+                    NSArray *dateArray = [obj[@"date"] componentsSeparatedByString:@"-"];
+                    model.year = [dateArray[0] integerValue];
+                    model.month = [dateArray[1] integerValue];
+                    model.day = [dateArray[2] integerValue];
+                    
+                    [self.dataArray addObject:model];
+                }];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.collectionView reloadData];
+                });
+            });
             
             
             
@@ -346,7 +366,6 @@ static NSString *DayCell = @"DayCell";
       
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"error = =%@",error);
 //        [[iToast makeText:@"网络错误"] show];
     }];
 
@@ -370,7 +389,7 @@ static NSString *DayCell = @"DayCell";
     
     NSDate *selectdate  = [NSDate date];
     //返回数据模型数组
-    return [self.calendarLogic reloadCalendarView:date selectDate:selectdate needDays:days showType:type isEnable:isEnable priceModelArr:arr isChineseCalendar:self.isDisplayChineseCalendar];
+    return [self.calendarLogic reloadCalendarView:date selectDate:selectdate needDays:days showType:type isEnable:isEnable modelArray:arr isChineseCalendar:self.isDisplayChineseCalendar];
 }
 
 #pragma mark - CollectionView 数据源
@@ -391,6 +410,9 @@ static NSString *DayCell = @"DayCell";
     RMCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DayCell forIndexPath:indexPath];
     NSArray *months = [self.calendarMonth objectAtIndex:indexPath.section];
     RMCalendarModel *model = [months objectAtIndex:indexPath.row];
+    if(indexPath.item < self.dataArray.count){
+        model.dutyModel = self.dataArray[indexPath.item];
+    }
     cell.model = model;
     return cell;
 }
@@ -416,11 +438,10 @@ static NSString *DayCell = @"DayCell";
 - (void)collectionView:(nonnull UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSArray *months = [self.calendarMonth objectAtIndex:indexPath.section];
     RMCalendarModel *model = [months objectAtIndex:indexPath.row];
-    if (model.style == CellDayTypeClick || model.style == CellDayTypeFutur || model.style == CellDayTypeWeek) {
-        [self.calendarLogic selectLogic:model];
-        if (self.calendarBlock) {
-            self.calendarBlock(model);
-        }
+
+    [self.calendarLogic selectLogic:model];
+    if (self.calendarBlock) {
+        self.calendarBlock(model);
     }
     [self.collectionView reloadData];
 }

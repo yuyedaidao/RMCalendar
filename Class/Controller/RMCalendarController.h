@@ -56,7 +56,7 @@ typedef void (^CalendarBlock)(RMCalendarModel *model);
 /**
  *  是否展示农历  默认为NO
  */
-@property(nonatomic, assign) BOOL isDisplayChineseCalendar;
+@property(nonatomic, assign, getter=isDisplayChineseCalendar) BOOL displayChineseCalendar;
 
 /**
  *  初始化对象
@@ -68,11 +68,8 @@ typedef void (^CalendarBlock)(RMCalendarModel *model);
  */
 - (instancetype)initWithDays:(int)days showType:(CalendarShowType)type;
 
-- (instancetype)initWithDays:(int)days showType:(CalendarShowType)type modelArrar:(NSMutableArray *)modelArr;
-
 + (instancetype)calendarWithDays:(int)days showType:(CalendarShowType)type;
 
-+ (instancetype)calendarWithDays:(int)days showType:(CalendarShowType)type modelArrar:(NSMutableArray *)modelArr;
 
 
 @end

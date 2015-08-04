@@ -12,23 +12,59 @@
 #import <MBProgressHUD.h>
 #import <iToast.h>
 #import <JSONKit.h>
+#import "User.h"
+#import "Helper.h"
+
+
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 
+@property (strong, nonatomic) UIImageView *bgImgView;
+@property (strong, nonatomic) UIView *effectView;
+
 @end
 
 @implementation LoginViewController
 
+
+- (void)loadView{
+    [super loadView];
+    
+    self.bgImgView = ({
+        UIImageView *bgImgView = [[UIImageView alloc] init];
+        bgImgView.image = [UIImage imageNamed:@"morning"];
+        bgImgView.contentMode = UIViewContentModeScaleAspectFill;
+        [self.view addSubview:bgImgView];
+        bgImgView;
+    });
+    
+    
+    self.effectView = ({
+        UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        [self.view addSubview:effectView];
+        effectView;
+    });
+    
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
+    self.view.frame = [UIScreen mainScreen].bounds;
+  
+    self.effectView.frame = self.view.bounds;
+    self.bgImgView.frame = self.view.bounds;
+    [self.view sendSubviewToBack:self.effectView];
+    [self.view sendSubviewToBack:self.bgImgView];
 }
+
 
 #pragma mark action
 - (IBAction)login:(id)sender {
+    
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -38,7 +74,7 @@
   
     [manager POST:[NSString stringWithFormat:@"%@%@",BaseURL,LoginMethod] parameters:@{@"user":self.userNameTF.text,@"pass":self.passwordTF.text} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-       
+    
         if([result containsString:@"title=\"Sign Out\">退出</a>"]){
             //应该先获取用户信息，然后再退出视图
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -49,32 +85,39 @@
                 NSDictionary *dic = [result objectFromJSONString];
                 if([dic[@"code"] integerValue] == 1){
                     [[NSUserDefaults standardUserDefaults] setObject:dic[@"userinfo"] forKey:KeyUserinfo];
+                    [Helper defaultHelper].user = [dic[@"userinfo"] userFromDictionary];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     [self dismiss];
+                    [hud hide:YES];
                 }else{
-                    //            [[iToast makeText:@"数据错误"] show];
+//                                [[iToast makeText:@"数据错误"] show];
+                    [hud hide:YES];
                 }
                 
                 
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                NSLog(@"error = =%@",error);
-                //        [[iToast makeText:@"网络错误"] show];
+          
+//                [[iToast makeText:@"网络错误"] show];
+                [hud hide:YES];
             }];
 
         }else{
             [[iToast makeText:@"登录失败"] show];
+            [hud hide:YES];
         }
 
-        [hud hide:YES];
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"error == %@",error);
         [[iToast makeText:@"网络错误"] show];
+        [hud hide:YES];
     }];
 }
 
 - (void)dismiss{
-
+   
     if(self.completeBlock){
         self.completeBlock();
     }

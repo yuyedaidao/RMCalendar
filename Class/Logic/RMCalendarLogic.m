@@ -8,7 +8,8 @@
 
 #import "RMCalendarLogic.h"
 #import "NSDate+RMCalendarLogic.h"
-#import "TicketModel.h"
+#import "YQDutyModel.h"
+
 
 @interface RMCalendarLogic()
 
@@ -31,7 +32,7 @@
 /**
  *  价格模型数组
  */
-@property (nonatomic, strong) NSArray *priceModelArr;
+@property (nonatomic, strong) NSArray *modelArray;
 
 @property (nonatomic, assign) BOOL isEnable;
 
@@ -42,27 +43,26 @@
 @implementation RMCalendarLogic
 
 #warning 初始化 模型数组，可根据功能进行修改
-- (NSArray *)priceModelArr {
-    if (!_priceModelArr) {
-        _priceModelArr = [NSArray array];
+- (NSArray *)modelArray {
+    if (!_modelArray) {
+        _modelArray = [NSArray array];
     }
-    return _priceModelArr;
+    return _modelArray;
 }
 
--(NSMutableArray *)reloadCalendarView:(NSDate *)date selectDate:(NSDate *)selectDate needDays:(int)days showType:(CalendarShowType)type isEnable:(BOOL)isEnable priceModelArr:(NSArray *)arr isChineseCalendar:(BOOL)isChineseCalendar {
+-(NSMutableArray *)reloadCalendarView:(NSDate *)date selectDate:(NSDate *)selectDate needDays:(int)days showType:(CalendarShowType)type isEnable:(BOOL)isEnable modelArray:(NSArray *)arr isChineseCalendar:(BOOL)isChineseCalendar {
     self.isDisplayChineseCalender = isChineseCalendar;
-    return [self reloadCalendarView:date selectDate:selectDate needDays:days showType:type isEnable:isEnable priceModelArr:arr];
+    return [self reloadCalendarView:date selectDate:selectDate needDays:days showType:type isEnable:isEnable modelArray:arr];
 }
 
--(NSMutableArray *)reloadCalendarView:(NSDate *)date selectDate:(NSDate *)selectDate needDays:(int)days showType:(CalendarShowType)type isEnable:(BOOL)isEnable priceModelArr:(NSArray *)arr {
+-(NSMutableArray *)reloadCalendarView:(NSDate *)date selectDate:(NSDate *)selectDate needDays:(int)days showType:(CalendarShowType)type isEnable:(BOOL)isEnable modelArray:(NSArray *)arr {
     self.isEnable = isEnable;
-    return [self reloadCalendarView:date selectDate:selectDate needDays:days showType:type priceModelArr:arr];
+    return [self reloadCalendarView:date selectDate:selectDate needDays:days showType:type modelArray:arr];
 }
 
--(NSMutableArray *)reloadCalendarView:(NSDate *)date selectDate:(NSDate *)selectDate needDays:(int)days showType:(CalendarShowType)type priceModelArr:(NSArray *)arr {
+-(NSMutableArray *)reloadCalendarView:(NSDate *)date selectDate:(NSDate *)selectDate needDays:(int)days showType:(CalendarShowType)type modelArray:(NSArray *)arr {
 #warning 此处根据自己需求可修改
-    // 存放价格模型
-    self.priceModelArr = arr;
+    self.modelArray = arr;
     return [self reloadCalendarView:date selectDate:selectDate needDays:days showType:type];
 }
 
@@ -102,6 +102,8 @@
     if (type == CalendarShowTypeSingle) {
         months = 0;
     }
+    
+    //TODO:在这里把dutyModel设置好
     
     for (int i = 0; i <= months; i++) {
         
@@ -233,15 +235,10 @@
             }
         }
     }
-#warning for进行模型日期匹配,将价格和日期关联，此处可根据项目需求进行修改
-//    for (int i = 0; i < self.priceModelArr.count; i++) {
-//        TicketModel *tModel = self.priceModelArr[i];
-//        if (tModel.year == model.year &
-//            tModel.month == model.month &
-//            tModel.day == model.day) {
-//            model.ticketModel = tModel;
-//        }
-//    }
+
+//    [self.modelArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        
+//    }];
     
     
     //===================================

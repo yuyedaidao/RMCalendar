@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2162FB591B70B0E0006C1230 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2162FB581B70B0E0006C1230 /* Helper.m */; };
+		2162FB5C1B70B1F0006C1230 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2162FB5B1B70B1F0006C1230 /* User.m */; };
 		219792FD1B6F46640005EFC8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219792FB1B6F46640005EFC8 /* LoginViewController.m */; };
 		219792FE1B6F46640005EFC8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219792FC1B6F46640005EFC8 /* LoginViewController.xib */; };
 		219793091B6F71210005EFC8 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 219793081B6F71210005EFC8 /* Constants.h */; };
@@ -41,7 +43,6 @@
 		EE4A504D1B43E8EF004B6590 /* RMCalendarMonthHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A50381B43E8EF004B6590 /* RMCalendarMonthHeaderView.m */; };
 		EE4A504E1B43E8EF004B6590 /* RMCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A503A1B43E8EF004B6590 /* RMCollectionCell.m */; };
 		EE4A50501B43E902004B6590 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE4A504F1B43E902004B6590 /* Default-568h@2x.png */; };
-		EEDB721D1B4A1EA3003F6AC6 /* TicketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB721C1B4A1EA3003F6AC6 /* TicketModel.m */; };
 		EEDB72301B4A4A0C003F6AC6 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB72201B4A4A0C003F6AC6 /* MJConst.m */; };
 		EEDB72311B4A4A0C003F6AC6 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB72231B4A4A0C003F6AC6 /* MJFoundation.m */; };
 		EEDB72321B4A4A0C003F6AC6 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB72251B4A4A0C003F6AC6 /* MJProperty.m */; };
@@ -63,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2162FB571B70B0E0006C1230 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		2162FB581B70B0E0006C1230 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		2162FB5A1B70B1F0006C1230 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		2162FB5B1B70B1F0006C1230 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		219792FA1B6F46640005EFC8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		219792FB1B6F46640005EFC8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		219792FC1B6F46640005EFC8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -116,8 +121,6 @@
 		EE4A50391B43E8EF004B6590 /* RMCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCollectionCell.h; sourceTree = "<group>"; };
 		EE4A503A1B43E8EF004B6590 /* RMCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCollectionCell.m; sourceTree = "<group>"; };
 		EE4A504F1B43E902004B6590 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		EEDB721B1B4A1EA3003F6AC6 /* TicketModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketModel.h; sourceTree = "<group>"; };
-		EEDB721C1B4A1EA3003F6AC6 /* TicketModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketModel.m; sourceTree = "<group>"; };
 		EEDB721F1B4A4A0C003F6AC6 /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
 		EEDB72201B4A4A0C003F6AC6 /* MJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConst.m; sourceTree = "<group>"; };
 		EEDB72211B4A4A0C003F6AC6 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				219793081B6F71210005EFC8 /* Constants.h */,
+				2162FB571B70B0E0006C1230 /* Helper.h */,
+				2162FB581B70B0E0006C1230 /* Helper.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -306,10 +311,10 @@
 			children = (
 				EE4A50251B43E8EF004B6590 /* RMCalendarModel.h */,
 				EE4A50261B43E8EF004B6590 /* RMCalendarModel.m */,
-				EEDB721B1B4A1EA3003F6AC6 /* TicketModel.h */,
-				EEDB721C1B4A1EA3003F6AC6 /* TicketModel.m */,
 				55696D2D1B6E5715006F8A34 /* YQDutyModel.h */,
 				55696D2E1B6E5715006F8A34 /* YQDutyModel.m */,
+				2162FB5A1B70B1F0006C1230 /* User.h */,
+				2162FB5B1B70B1F0006C1230 /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,7 +426,7 @@
 				TargetAttributes = {
 					EE4A4FEE1B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = GP4MMMES25;
+						DevelopmentTeam = VZ7MTRGFPF;
 					};
 					EE4A50071B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
@@ -520,11 +525,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2162FB5C1B70B1F0006C1230 /* User.m in Sources */,
 				EEDB72341B4A4A0C003F6AC6 /* NSObject+MJCoding.m in Sources */,
 				2197930D1B6FA0EE0005EFC8 /* LoginSegue.m in Sources */,
 				EE4A503E1B43E8EF004B6590 /* RMCalendarLogic.m in Sources */,
 				EEDB72311B4A4A0C003F6AC6 /* MJFoundation.m in Sources */,
-				EEDB721D1B4A1EA3003F6AC6 /* TicketModel.m in Sources */,
 				EEDB72351B4A4A0C003F6AC6 /* NSObject+MJKeyValue.m in Sources */,
 				219793091B6F71210005EFC8 /* Constants.h in Sources */,
 				EE4A503B1B43E8EF004B6590 /* NSDate+RMCalendarLogic.m in Sources */,
@@ -540,6 +545,7 @@
 				EE4A503C1B43E8EF004B6590 /* UIView+CustomFrame.m in Sources */,
 				EEDB72331B4A4A0C003F6AC6 /* MJType.m in Sources */,
 				55696D2F1B6E5715006F8A34 /* YQDutyModel.m in Sources */,
+				2162FB591B70B0E0006C1230 /* Helper.m in Sources */,
 				EE4A504D1B43E8EF004B6590 /* RMCalendarMonthHeaderView.m in Sources */,
 				EEDB72321B4A4A0C003F6AC6 /* MJProperty.m in Sources */,
 				219792FD1B6F46640005EFC8 /* LoginViewController.m in Sources */,
@@ -622,7 +628,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -660,7 +666,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -674,8 +680,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RMCalendar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -686,8 +694,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RMCalendar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
