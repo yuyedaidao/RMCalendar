@@ -14,8 +14,8 @@
 #import <JSONKit.h>
 #import "User.h"
 #import "Helper.h"
-
-
+#import <UICKeyChainStore.h>
+#import <UITextField+Shake.h>
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTF;
@@ -65,6 +65,14 @@
 #pragma mark action
 - (IBAction)login:(id)sender {
     
+    if(self.userNameTF.text.length <= 0){
+        [self.userNameTF shake];
+        return;
+    }
+    if(self.passwordTF.text.length <= 0){
+        [self.passwordTF shake];
+        return;
+    }
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -76,6 +84,12 @@
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
     
         if([result containsString:@"title=\"Sign Out\">退出</a>"]){
+            
+            //把用户名和密码锁起来
+            UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:KeyChainService];
+            keychain[KeyChainPassword] = self.passwordTF.text;
+            keychain[keyChainAccount] = self.userNameTF.text;
+
             //应该先获取用户信息，然后再退出视图
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             manager.responseSerializer = [AFHTTPResponseSerializer serializer];

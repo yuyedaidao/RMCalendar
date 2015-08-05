@@ -7,10 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "DutyModel.h"
 
 typedef NS_ENUM(NSUInteger, YQDutyType) {
     YQDutyTypeWorkday,//平常（工作日）班
     YQDutyTypeWeekend,//周末班
+};
+
+typedef NS_ENUM(NSUInteger, UserDutyType) {
+    UserDutyTypeDefault,
+    UserDutyTypeMorning,
+    UserDutyTypeNight,
+    UserDutyTypeWeekend,
 };
 
 @interface YQDutyModel : NSObject
@@ -38,5 +47,12 @@ typedef NS_ENUM(NSUInteger, YQDutyType) {
  *  晚班人员，或者周末班中的全天班
  */
 @property (nonatomic, strong) NSArray *nightUserArray;
+
+@property (nonatomic, assign) UserDutyType userDutyType;
+
+@property (nonatomic, copy) NSString *morningUsers;
+@property (nonatomic, copy) NSString *nightUsers;
+
+- (DutyModel *)coreDataDutyModel;
 
 @end

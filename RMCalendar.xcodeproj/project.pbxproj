@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2162FB591B70B0E0006C1230 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2162FB581B70B0E0006C1230 /* Helper.m */; };
 		2162FB5C1B70B1F0006C1230 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2162FB5B1B70B1F0006C1230 /* User.m */; };
+		216BD5BE1B7229A9009F9442 /* DutySchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 216BD5BC1B7229A9009F9442 /* DutySchedule.xcdatamodeld */; };
+		216BD5C11B722EB3009F9442 /* DutyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 216BD5C01B722EB3009F9442 /* DutyModel.m */; };
 		219792FD1B6F46640005EFC8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219792FB1B6F46640005EFC8 /* LoginViewController.m */; };
 		219792FE1B6F46640005EFC8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219792FC1B6F46640005EFC8 /* LoginViewController.xib */; };
 		219793091B6F71210005EFC8 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 219793081B6F71210005EFC8 /* Constants.h */; };
@@ -68,6 +70,9 @@
 		2162FB581B70B0E0006C1230 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		2162FB5A1B70B1F0006C1230 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2162FB5B1B70B1F0006C1230 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		216BD5BD1B7229A9009F9442 /* DutySchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DutySchedule.xcdatamodel; sourceTree = "<group>"; };
+		216BD5BF1B722EB3009F9442 /* DutyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DutyModel.h; sourceTree = "<group>"; };
+		216BD5C01B722EB3009F9442 /* DutyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DutyModel.m; sourceTree = "<group>"; };
 		219792FA1B6F46640005EFC8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		219792FB1B6F46640005EFC8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		219792FC1B6F46640005EFC8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -315,6 +320,9 @@
 				55696D2E1B6E5715006F8A34 /* YQDutyModel.m */,
 				2162FB5A1B70B1F0006C1230 /* User.h */,
 				2162FB5B1B70B1F0006C1230 /* User.m */,
+				216BD5BC1B7229A9009F9442 /* DutySchedule.xcdatamodeld */,
+				216BD5BF1B722EB3009F9442 /* DutyModel.h */,
+				216BD5C01B722EB3009F9442 /* DutyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +435,11 @@
 					EE4A4FEE1B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = VZ7MTRGFPF;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					EE4A50071B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
@@ -537,8 +550,10 @@
 				EE4A4FFB1B43E881004B6590 /* ViewController.m in Sources */,
 				EEDB72371B4A4A0C003F6AC6 /* NSString+MJExtension.m in Sources */,
 				EE4A4FF81B43E881004B6590 /* AppDelegate.m in Sources */,
+				216BD5BE1B7229A9009F9442 /* DutySchedule.xcdatamodeld in Sources */,
 				EE4A4FF51B43E881004B6590 /* main.m in Sources */,
 				EE4A503D1B43E8EF004B6590 /* RMCalendarController.m in Sources */,
+				216BD5C11B722EB3009F9442 /* DutyModel.m in Sources */,
 				EE4A503F1B43E8EF004B6590 /* RMCalendarModel.m in Sources */,
 				EE4A504C1B43E8EF004B6590 /* RMCalendarCollectionViewLayout.m in Sources */,
 				EEDB72361B4A4A0C003F6AC6 /* NSObject+MJProperty.m in Sources */,
@@ -679,6 +694,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RMCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -693,6 +712,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RMCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -766,6 +789,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		216BD5BC1B7229A9009F9442 /* DutySchedule.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				216BD5BD1B7229A9009F9442 /* DutySchedule.xcdatamodel */,
+			);
+			currentVersion = 216BD5BD1B7229A9009F9442 /* DutySchedule.xcdatamodel */;
+			path = DutySchedule.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EE4A4FE71B43E881004B6590 /* Project object */;
 }

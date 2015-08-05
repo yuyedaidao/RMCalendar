@@ -24,12 +24,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>UICKeyChainStore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UITextField+Shake.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,12 +62,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>056F435A98B9D919A9F81FEFF6FBC0D2</key>
+		<key>0021A11CA6923F339538C45EF05EE163</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B6865F4C097E07A7D425B382DDE6CAA</key>
+		<key>24EB01E3504F6F8D9E8C6730ECAC9D9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>434A704CDFD7B320E1A1C94D9B4B390A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>530E3A7819715CCCF11F2FFB913F758E</key>
+		<key>601CED44E8D50962EA92129F8445997F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5FA08E976BE6237EFEAA531F65A1412</key>
+		<key>750F3FA972E2C9FE25A7EB9A5DA341A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD11D05A2871EEAFB3E3D94B9583D993</key>
+		<key>B1E66FD92FFFF7D8FEEBCEC6FAC6D1FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE83F027589C263B8D522B0184B05A98</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC210D9C7D151798E198E799F4D61938</key>
 		<dict>
 			<key>primary</key>
 			<true/>

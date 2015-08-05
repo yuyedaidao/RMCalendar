@@ -82,37 +82,17 @@
 
     self.chineseCalendar.text = model.Chinese_calendar;
     self.chineseCalendar.hidden = NO;
-    
-    if(model.dutyModel){
-        __block BOOL findFlag = NO;
-        [model.dutyModel.nightUserArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if([[Helper defaultHelper].user.name isEqualToString:obj]){
-                self.morningNightLabel.text = @"晚";
-                findFlag = YES;
-                *stop = YES;
-            }
-        }];
-        if(!findFlag){
-            
-            [model.dutyModel.morningUserArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if([[Helper defaultHelper].user.name isEqualToString:obj]){
-
-                    if(model.dutyModel.type == YQDutyTypeWorkday){
-                        self.morningNightLabel.text = @"早";
-                    }else{
-                        self.morningNightLabel.text = @"周";
-                    }
-                    findFlag = YES;
-                    *stop = YES;
-                }
-            }];
-        }
-        
-        self.morningNightLabel.hidden = !findFlag;
-        
-    }else{
-        self.morningNightLabel.hidden = YES;
+    self.morningNightLabel.hidden = model.dutyModel.userDutyType == UserDutyTypeDefault;
+    if(model.dutyModel.userDutyType == UserDutyTypeMorning){
+        self.morningNightLabel.text = @"早";
+    }else if(model.dutyModel.userDutyType == UserDutyTypeNight){
+        self.morningNightLabel.text = @"晚";
+    }else if(model.dutyModel.userDutyType == UserDutyTypeWeekend){
+        self.morningNightLabel.text = @"周";
     }
+   
+    
+    
     /**
      *  如果不展示农历，则日期居中
      */

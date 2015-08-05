@@ -182,6 +182,10 @@
             calendarDay.Chinese_calendar = [self LunarForSolarYear:components.year Month:components.month Day:i];
             [self LunarForSolarYear:calendarDay];
         }
+        if(self.modelArray.count){
+            calendarDay.dutyModel = self.modelArray[i-1];
+        }
+        
         [self changStyle:calendarDay];
         [array addObject:calendarDay];
     }

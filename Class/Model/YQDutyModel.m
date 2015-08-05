@@ -10,4 +10,18 @@
 
 @implementation YQDutyModel
 
+- (DutyModel *)coreDataDutyModel{
+    DutyModel *model = [[DutyModel alloc] init];
+    model.year = @(self.year);
+    model.month = @(self.month);
+    model.day = @(self.day);
+    
+    model.userDutyType = @(self.userDutyType);
+    model.type = @(self.type);
+    
+    model.morningUsers = self.morningUsers;
+    model.nightUsers = self.nightUsers;
+    
+    return model;
+}
 @end
