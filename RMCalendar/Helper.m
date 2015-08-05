@@ -28,6 +28,10 @@
 }
 - (void)backUpdateWithBlock:(void (^)(void))completeBlock{
     
+    
+    NSInteger performCount = [[NSUserDefaults standardUserDefaults] integerForKey:@"performCount"];
+    [[NSUserDefaults standardUserDefaults] setInteger:performCount+1 forKey:@"peformCount"];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];

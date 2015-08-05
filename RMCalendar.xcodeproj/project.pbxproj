@@ -14,7 +14,6 @@
 		219792FD1B6F46640005EFC8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219792FB1B6F46640005EFC8 /* LoginViewController.m */; };
 		219792FE1B6F46640005EFC8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219792FC1B6F46640005EFC8 /* LoginViewController.xib */; };
 		219793091B6F71210005EFC8 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 219793081B6F71210005EFC8 /* Constants.h */; };
-		2197930D1B6FA0EE0005EFC8 /* LoginSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197930C1B6FA0EE0005EFC8 /* LoginSegue.m */; };
 		55696D2F1B6E5715006F8A34 /* YQDutyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55696D2E1B6E5715006F8A34 /* YQDutyModel.m */; };
 		D534C7B2BB09C68D5AFBBFF0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D60C1DF8267FFB285847EF /* libPods.a */; };
 		EE4A4FF51B43E881004B6590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FF41B43E881004B6590 /* main.m */; };
@@ -77,8 +76,6 @@
 		219792FB1B6F46640005EFC8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		219792FC1B6F46640005EFC8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		219793081B6F71210005EFC8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		2197930B1B6FA0EE0005EFC8 /* LoginSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSegue.h; sourceTree = "<group>"; };
-		2197930C1B6FA0EE0005EFC8 /* LoginSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSegue.m; sourceTree = "<group>"; };
 		55696D2D1B6E5715006F8A34 /* YQDutyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQDutyModel.h; sourceTree = "<group>"; };
 		55696D2E1B6E5715006F8A34 /* YQDutyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQDutyModel.m; sourceTree = "<group>"; };
 		68D60C1DF8267FFB285847EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,15 +180,6 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
-		2197930A1B6FA00D0005EFC8 /* Segue */ = {
-			isa = PBXGroup;
-			children = (
-				2197930B1B6FA0EE0005EFC8 /* LoginSegue.h */,
-				2197930C1B6FA0EE0005EFC8 /* LoginSegue.m */,
-			);
-			name = Segue;
-			sourceTree = "<group>";
-		};
 		4AD8FCECABC0665DB49C84F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,7 +258,6 @@
 		EE4A50181B43E8EF004B6590 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				2197930A1B6FA00D0005EFC8 /* Segue */,
 				EE4A50191B43E8EF004B6590 /* Category */,
 				EE4A501E1B43E8EF004B6590 /* Controller */,
 				EE4A50211B43E8EF004B6590 /* Logic */,
@@ -434,7 +421,7 @@
 				TargetAttributes = {
 					EE4A4FEE1B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = VZ7MTRGFPF;
+						DevelopmentTeam = GP4MMMES25;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -540,7 +527,6 @@
 			files = (
 				2162FB5C1B70B1F0006C1230 /* User.m in Sources */,
 				EEDB72341B4A4A0C003F6AC6 /* NSObject+MJCoding.m in Sources */,
-				2197930D1B6FA0EE0005EFC8 /* LoginSegue.m in Sources */,
 				EE4A503E1B43E8EF004B6590 /* RMCalendarLogic.m in Sources */,
 				EEDB72311B4A4A0C003F6AC6 /* MJFoundation.m in Sources */,
 				EEDB72351B4A4A0C003F6AC6 /* NSObject+MJKeyValue.m in Sources */,
@@ -693,7 +679,8 @@
 			baseConfigurationReference = AE8BF96DAF43EB0F9EA76D5F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8EBL68KM57)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8EBL68KM57)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -711,7 +698,7 @@
 			baseConfigurationReference = 81AC6753050F3FF468FB8A1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8EBL68KM57)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
