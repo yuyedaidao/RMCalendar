@@ -93,14 +93,15 @@ static NSString *DayCell = @"DayCell";
     
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:KeyChainService];
     if(keychain[KeyChainPassword].length){
-        [[Helper defaultHelper] backUpdateWithBlock:^{
-            NSLog(@"---+++-----");
-        }];
+        [[Helper defaultHelper] backUpdateWithBlock:nil];
     }else{
     
         [self loginView];
     }
 
+    NSInteger performCount = [[NSUserDefaults standardUserDefaults] integerForKey:@"performCount"];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"后台测试" message:[@(performCount) stringValue] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+    [alert show];
 }
 
 #pragma mark selector
@@ -151,6 +152,7 @@ static NSString *DayCell = @"DayCell";
         make.bottom.equalTo(@(-30));
         make.trailing.equalTo(@(-30));
     }];
+    
     
 }
 - (void)prepareCollectionView{

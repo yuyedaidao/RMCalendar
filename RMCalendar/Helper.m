@@ -28,7 +28,11 @@
 }
 - (void)backUpdateWithBlock:(void (^)(void))completeBlock{
     
-    NSLog(@"-------");
+    if(completeBlock){
+
+        NSInteger performCount = [[NSUserDefaults standardUserDefaults] integerForKey:@"performCount"];
+        [[NSUserDefaults standardUserDefaults] setInteger:performCount+1 forKey:@"performCount"];
+    }
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];

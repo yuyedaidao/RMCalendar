@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E21750EDFE765253BB3996F0"
+               BlueprintIdentifier = "F137E21693C974F1D1744E32"
                BuildableName = "libUITextField+Shake.a"
                BlueprintName = "UITextField+Shake"
                ReferencedContainer = "container:Pods.xcodeproj">
