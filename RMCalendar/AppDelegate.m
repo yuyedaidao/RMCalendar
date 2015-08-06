@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [application setMinimumBackgroundFetchInterval:60];
+    [application setMinimumBackgroundFetchInterval:35];
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -63,7 +63,7 @@
             return;
         }
         //设置本地通知的触发时间（如果要立即触发，无需设置），这里设置为20妙后
-        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
         //设置本地通知的时区
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         //设置通知的内容
@@ -76,8 +76,8 @@
 //        NSDictionary *infoDic = [NSDictionary dictionaryWithObjectsAndKeys:LOCAL_NOTIFY_SCHEDULE_ID,@"id",[NSNumber numberWithInteger:time],@"time",[NSNumber numberWithInt:affair.aid],@"affair.aid", nil nil];
 //        localNotification.userInfo = infoDic;
         //在规定的日期触发通知
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        completionHandler(UIBackgroundFetchResultNoData);
+        [application scheduleLocalNotification:localNotification];
+        completionHandler(UIBackgroundFetchResultNewData);
     }];
 
 }

@@ -9,7 +9,7 @@ pod 'JSONKit-NoWarning', '~> 1.2'
 pod 'IQKeyboardManager', '~> 3.2.4'
 pod 'MJRefresh', '~> 2.3.2'
 #pod 'MJExtension', '~> 2.5.5'
-
+pod 'ReactiveCocoa'
 pod 'UITextField+Shake', '~> 1.1'
 pod 'Masonry', '~> 0.6.2'
 

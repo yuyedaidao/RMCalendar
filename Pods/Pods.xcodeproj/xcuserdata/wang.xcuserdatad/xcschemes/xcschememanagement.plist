@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UICKeyChainStore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +67,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0021A11CA6923F339538C45EF05EE163</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>24EB01E3504F6F8D9E8C6730ECAC9D9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>434A704CDFD7B320E1A1C94D9B4B390A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,7 +82,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>601CED44E8D50962EA92129F8445997F</key>
+		<key>4D7EDF211E31E233B7FDAAF42BB5D5F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5CD4B0B20F3AF443B5B32DB6FCDF5371</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>600D33D15FBC3974F9897BE91A773B81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6951DA9871DA259A9AAA6EFC68AEF8EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>750F3FA972E2C9FE25A7EB9A5DA341A8</key>
+		<key>AC093D8E2F56C57BD436E0434A9BF228</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1E66FD92FFFF7D8FEEBCEC6FAC6D1FB</key>
+		<key>B391EC572D889E004FFBBF045FBD3FC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE83F027589C263B8D522B0184B05A98</key>
+		<key>E27A5525A0C3DA21537620499506DA05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC210D9C7D151798E198E799F4D61938</key>
+		<key>EE84383B89CEA7354AD0F8ECB4FFEC29</key>
 		<dict>
 			<key>primary</key>
 			<true/>

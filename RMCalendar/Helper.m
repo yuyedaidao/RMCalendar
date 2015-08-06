@@ -28,6 +28,8 @@
 }
 - (void)backUpdateWithBlock:(void (^)(void))completeBlock{
     
+    NSLog(@"-------");
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];

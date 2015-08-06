@@ -20,6 +20,8 @@
 #import <UICKeyChainStore.h>
 #import "DutyModel.h"
 #import <Masonry.h>
+#import <ReactiveCocoa.h>
+
 
 @interface RMCalendarController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -82,7 +84,8 @@ static NSString *DayCell = @"DayCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 定义Layout对象
+
+    self.title = @"值班表";
     self.view.frame = [UIScreen mainScreen].bounds;
     
     [self prepareCollectionView];
@@ -102,9 +105,20 @@ static NSString *DayCell = @"DayCell";
 
 #pragma mark selector
 - (void)logout:(id)sender{
-    UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:KeyChainService];
-    [keychain removeItemForKey:KeyChainPassword];
-    [self loginView];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确定要退出吗?" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    
+    [[alert rac_buttonClickedSignal] subscribeNext:^(id x) {
+        if([x integerValue] == 0){
+            UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:KeyChainService];
+            [keychain removeItemForKey:KeyChainPassword];
+            [self loginView];
+        }
+    }];
+    
+    [alert show];
+    
+
 }
 
 #pragma mark self handler
@@ -119,8 +133,16 @@ static NSString *DayCell = @"DayCell";
 }
 - (void)prepareView{
     
+    
+//    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//    bgImgView.image = [UIImage imageNamed:@"morning"];
+//    bgImgView.contentMode = UIViewContentModeScaleAspectFill;
+//    [self.view addSubview:bgImgView];
+//    [self.view sendSubviewToBack:bgImgView];
+    
     UIButton *logout = [UIButton buttonWithType:UIButtonTypeCustom];
     [logout setTitle:@"退出" forState:UIControlStateNormal];
+    [logout setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     logout.contentEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 5);
     [logout addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:logout];
@@ -150,12 +172,9 @@ static NSString *DayCell = @"DayCell";
     self.collectionView.dataSource = self;//实现网格视图的dataSource
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
-    
-    UIImageView *bgImgView = [[UIImageView alloc] init];
-    bgImgView.image = [UIImage imageNamed:@"morning"];
-    bgImgView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:bgImgView];
-    self.collectionView.backgroundView = bgImgView;
+//    self.collectionView.backgroundView = self.view;
+//    self.collectionView.backgroundColor = [UIColor clearColor];
+   
     
     self.calendarMonth = [self getMonthArrayOfDays:self.days showType:self.type isEnable:self.isEnable modelArr:nil];
     
