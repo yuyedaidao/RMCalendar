@@ -23,18 +23,12 @@ typedef NS_ENUM(NSUInteger, UserDutyType) {
 };
 
 @interface YQDutyModel : NSObject
-/**
- *  年
- */
+
 @property (nonatomic, assign) NSInteger year;
-/**
- *  月
- */
 @property (nonatomic, assign) NSInteger month;
-/**
- *  日
- */
 @property (nonatomic, assign) NSInteger day;
+
+@property (nonatomic, copy) NSString *dutyStringDate;
 
 @property (nonatomic, assign) YQDutyType type;
 

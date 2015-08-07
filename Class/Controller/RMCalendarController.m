@@ -99,9 +99,29 @@ static NSString *DayCell = @"DayCell";
         [self loginView];
     }
 
-    NSInteger performCount = [[NSUserDefaults standardUserDefaults] integerForKey:@"performCount"];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"后台测试" message:[@(performCount) stringValue] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
-    [alert show];
+    
+    
+//    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+//    localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:-60*60*4];
+//    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//    localNotification.alertBody = @"少侠，明天有你的值班，切记，切记！";
+//    //设置通知动作按钮的标题
+//    localNotification.alertAction = @"知道了";
+//    //设置提醒的声音，可以自己添加声音文件，这里设置为默认提示声
+//    localNotification.soundName = UILocalNotificationDefaultSoundName;
+//    //设置通知的相关信息，这个很重要，可以添加一些标记性内容，方便以后区分和获取通知的信息
+////    NSDictionary *infoDic = @{
+////                              @"dutyStringDate":model.dutyStringDate,
+////                              @"dutyDate":@(dutyIntDate)
+////                              };
+////    localNotification.userInfo = infoDic;
+//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+//    NSLog(@"state = %d",[UIApplication  sharedApplication].applicationState);
+//    if([UIApplication  sharedApplication].applicationState == UIApplicationStateActive){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"值班通知" message:localNotification.alertBody delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+//        [alert show];
+//    }
+    
 }
 
 #pragma mark selector
@@ -349,7 +369,6 @@ static NSString *DayCell = @"DayCell";
 #pragma mark viewlife
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
 }
 
 -(void)dealloc {

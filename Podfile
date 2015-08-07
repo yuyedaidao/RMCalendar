@@ -12,6 +12,7 @@ pod 'MJRefresh', '~> 2.3.2'
 pod 'ReactiveCocoa'
 pod 'UITextField+Shake', '~> 1.1'
 pod 'Masonry', '~> 0.6.2'
+pod 'DateTools'
 
 target :RMCalendarTests, :exclusive => true do
   # pod 'Kiwi'

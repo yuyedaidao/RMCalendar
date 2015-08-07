@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    [application setMinimumBackgroundFetchInterval:60*60*3];
 
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -58,26 +58,7 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     [[Helper defaultHelper] backUpdateWithBlock:^{
-        NSLog(@"++++----+++");
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        if (localNotification == nil) {
-            return;
-        }
-        //设置本地通知的触发时间（如果要立即触发，无需设置），这里设置为20妙后
-        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
-        //设置本地通知的时区
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        //设置通知的内容
-        localNotification.alertBody = @"后台在运行";
-        //设置通知动作按钮的标题
-        localNotification.alertAction = @"查看";
-        //设置提醒的声音，可以自己添加声音文件，这里设置为默认提示声
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-//        //设置通知的相关信息，这个很重要，可以添加一些标记性内容，方便以后区分和获取通知的信息
-//        NSDictionary *infoDic = [NSDictionary dictionaryWithObjectsAndKeys:LOCAL_NOTIFY_SCHEDULE_ID,@"id",[NSNumber numberWithInteger:time],@"time",[NSNumber numberWithInt:affair.aid],@"affair.aid", nil nil];
-//        localNotification.userInfo = infoDic;
-        //在规定的日期触发通知
-        [application scheduleLocalNotification:localNotification];
+    
         completionHandler(UIBackgroundFetchResultNewData);
     }];
 

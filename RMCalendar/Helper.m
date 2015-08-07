@@ -12,6 +12,7 @@
 #import <JSONKit.h>
 #import <UICKeyChainStore.h>
 #import "YQDutyModel.h"
+#import <DateTools.h>
 
 @implementation Helper
 + (instancetype)defaultHelper{
@@ -135,49 +136,130 @@
 }
 
 - (void)checkDuty{
+    
+    
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate date]];
+    //TODO:考虑月份最后一天该怎么处理
+//    [NSCalendar currentCalendar]
     
     NSArray *array = [[NSUserDefaults standardUserDefaults] arrayForKey:[@(components.year*10+components.month) stringValue]];
     if(array.count){
+        
+        NSDate *today = [NSDate date];
+        __block YQDutyModel *model = nil;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            //TODO:优化这个可以考虑用数组下标访问，直接从今天开始处理
             [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
                 
-                
-                YQDutyModel *model = [[YQDutyModel alloc] init];
-                //                    DutyModel *model = [[DutyModel alloc] init];
-                
-                NSString *morning = obj[@"zaoban"];
-                NSString *weekend = obj[@"zhoumoban"];
-                NSString *night = obj[@"wanban"];
-                if(weekend.length){
-                    model.type = YQDutyTypeWeekend;
-                    model.morningUserArray = [weekend componentsSeparatedByString:@","];
-                }else{
-                    model.type = YQDutyTypeWorkday;
-                    model.morningUserArray = [morning componentsSeparatedByString:@","];
+                NSDate *futureDate = [NSDate dateWithString:obj[@"date"] formatString:@"yyyy-MM-dd"];
+                if([futureDate isLaterThan:today]){
+                    
+                    NSString *morning = obj[@"zaoban"];
+                    NSString *weekend = obj[@"zhoumoban"];
+                    NSString *night = obj[@"wanban"];
+                    
+                    
+                    UserDutyType userDutyType = UserDutyTypeDefault;
+                    
+                    if([weekend containsString:[Helper defaultHelper].user.name]){
+                        userDutyType = UserDutyTypeWeekend;
+                    }else if([night containsString:[Helper defaultHelper].user.name]){
+                        userDutyType = UserDutyTypeNight;
+                    }else if([morning containsString:[Helper defaultHelper].user.name]){
+                        userDutyType = UserDutyTypeMorning;
+                    }
+                    
+                    //查找一个最近的值班日期，如果是24之内查看有没有该本地通知，如果没有就添加通知
+                    if(userDutyType != UserDutyTypeDefault){
+                        
+                        model = [[YQDutyModel alloc] init];
+                        model.dutyStringDate = obj[@"date"];
+                        NSArray *dateArray = [model.dutyStringDate componentsSeparatedByString:@"-"];
+                        model.year = [dateArray[0] integerValue];
+                        model.month = [dateArray[1] integerValue];
+                        model.day = [dateArray[2] integerValue];
+                        
+                        *stop = YES;
+                    }
+
                 }
-                model.nightUserArray = [night componentsSeparatedByString:@","];
-                if([weekend containsString:[Helper defaultHelper].user.name]){
-                    model.userDutyType = UserDutyTypeWeekend;
-                }else if([night containsString:[Helper defaultHelper].user.name]){
-                    model.userDutyType = UserDutyTypeNight;
-                }else if([morning containsString:[Helper defaultHelper].user.name]){
-                    model.userDutyType = UserDutyTypeMorning;
-                }else{
-                    model.userDutyType = UserDutyTypeDefault;
-                }
                 
-                NSArray *dateArray = [obj[@"date"] componentsSeparatedByString:@"-"];
-                model.year = [dateArray[0] integerValue];
-                model.month = [dateArray[1] integerValue];
-                model.day = [dateArray[2] integerValue];
                 
             }];
             
-            dispatch_async(dispatch_get_main_queue(), ^{
+            if(model){
+                NSInteger dutyIntDate = model.year*100+model.month*10+model.day;
                 
-                //                    [[Helper defaultHelper] checkDuty];
-            });
+                NSArray *localNotificationArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+                
+                __block BOOL shouldNotification = YES;
+                if (localNotificationArray) {
+                    [localNotificationArray enumerateObjectsUsingBlock:^(UILocalNotification *obj, NSUInteger idx, BOOL *stop) {
+                        NSDictionary *userInfo = obj.userInfo;
+                        if(userInfo){
+                            id value = userInfo[@"dutyDate"];
+                            if([value integerValue] == dutyIntDate){
+                                //说明找到了，不用再创建新的通知了
+                                shouldNotification = NO;
+                            }
+                        }
+                    }];
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if(shouldNotification){
+                        
+                        //如果现在已经晚上八点以后了就直接触发通知，如果还没到八点就八点再触发
+//                        NSDate *dutyDate = [NSDate dateWithString:model.dutyStringDate formatString:@"yyyy-MM-dd"];
+//                        NSDate *fireDate = [dutyDate dateByAddingHours:-4];
+                        NSString *message = nil;
+                        switch (model.userDutyType) {
+                            case UserDutyTypeMorning:
+                            {
+                                message = @"少侠，明天有你的早班，切记，切记！";
+                            }
+                                break;
+                            case UserDutyTypeWeekend:
+                            {
+                                message = @"明天是美好的周末，但是你却注定要值班！Come on!";
+                            }
+                                break;
+                            case UserDutyTypeNight:
+                            {
+                                message = @"明天晚班，还是提前养好精神，洗洗睡吧！";
+                            }
+                                break;
+                                
+                            default:
+                                break;
+                        }
+                        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                        localNotification.fireDate = [[NSDate dateWithString:model.dutyStringDate formatString:@"yyyy-MM-dd"] dateByAddingHours:-4];
+                        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                        localNotification.alertBody = message;
+                        //设置通知动作按钮的标题
+                        localNotification.alertAction = @"查看";
+                        //设置提醒的声音，可以自己添加声音文件，这里设置为默认提示声
+                        localNotification.soundName = UILocalNotificationDefaultSoundName;
+                        //设置通知的相关信息，这个很重要，可以添加一些标记性内容，方便以后区分和获取通知的信息
+                        NSDictionary *infoDic = @{
+                                                  @"dutyStringDate":model.dutyStringDate,
+                                                  @"dutyDate":@(dutyIntDate)
+                                                  };
+                        localNotification.userInfo = infoDic;
+                        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+                        if([UIApplication  sharedApplication].applicationState != UIApplicationStateBackground){
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"值班通知" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+                            [alert show];
+                        }
+                    }
+                });
+
+
+            }
+            
+            
         });
     }
 
