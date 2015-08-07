@@ -230,7 +230,10 @@
                             }
                                 break;
                                 
-                            default:
+                            default:{
+                                message  = @"没有值班，骗你呢";
+                            
+                            }
                                 break;
                         }
                         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
