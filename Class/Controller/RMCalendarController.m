@@ -212,6 +212,7 @@ static NSString *DayCell = @"DayCell";
     //先从本地获取数据 然后再去网络获取
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate date]];
     NSArray *oldArray = [[NSUserDefaults standardUserDefaults] objectForKey:[@(components.year*10+components.month) stringValue]];
+    NSLog(@"duty array = %@",oldArray);
     if(oldArray){
         [self wrapData:oldArray];
         self.calendarMonth = [self getMonthArrayOfDays:self.days showType:self.type isEnable:self.isEnable modelArr:self.dataArray];
