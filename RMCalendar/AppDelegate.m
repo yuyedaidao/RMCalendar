@@ -59,7 +59,7 @@
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     [[Helper defaultHelper] backUpdateWithBlock:^{
     
-        completionHandler(UIBackgroundFetchResultNewData);
+        completionHandler(UIBackgroundFetchResultNoData);
     }];
 
 }
