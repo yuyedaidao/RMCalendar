@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTMaterialTransition.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +45,16 @@
 			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RZTransitions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,22 +87,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0275B9C58AE7B5310DEA492BBAF93AC7</key>
+		<key>05A2A85A4861F763C0EA0BB792B1B296</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C96932CA2CFC725BFAB19F322796984</key>
+		<key>12952024B90EB072457B50C045BAE409</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1893DE70459B9C5430E1E53597BF9817</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>237A3F8D5E5EDB93DABC3F0752C02622</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>24EB01E3504F6F8D9E8C6730ECAC9D9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>42456FDC662CE322A56F3949B102DC0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BD4CE2761421BC37FE732ED14920217</key>
+		<key>5C94954C58B6358EC3BCB44AAEA95E6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5DE844BAB1F4E9C7CDDDA29449E27F3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>611506F373683FB4F74597DF96F40892</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,27 +142,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6CE1C6F887FAC89626E5973D43C37E59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6EA4E462BCBF397E6CF3CF7BAF4B35F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71B1A5536B8EFEA584CA069A4CE9B0C4</key>
+		<key>927C493E58870D0886CAC530C9EE80C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>853C20A782F03736DF6034CCF1220D4C</key>
+		<key>9A804E8A5B430A206D45CCF8112B562D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B133808E97AC0B176F85F6850B271D5B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CD2BF5F0D844C1F2C03286C52157FAEA</key>
+		<key>FFDC99343802AB5364745B966EDECBD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

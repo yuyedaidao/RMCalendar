@@ -61,41 +61,18 @@
                         [Helper defaultHelper].user = [dic1[@"userinfo"] userFromDictionary];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                         
-                        //获取值班信息
-                        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate date]];
-                        AFHTTPRequestOperationManager *manager2 = [AFHTTPRequestOperationManager manager];
-                        manager2.responseSerializer = [AFHTTPResponseSerializer serializer];
                         
-                        [manager2 GET:[NSString stringWithFormat:@"%@%@&moth=%ld",BaseURL,zhibanMethod,components.month] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                            NSString *result2 = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                            
-                            NSDictionary *dic2 = [result2 objectFromJSONString];
-                            if([dic2[@"code"] integerValue] == 1){
-                             
-                                NSArray *array = dic2[@"details"];
-                                if(array.count){
-                                    [[NSUserDefaults standardUserDefaults] setObject:array forKey:[@(components.year*10+components.month) stringValue]];
-                                    [[NSUserDefaults standardUserDefaults] synchronize];
-                                    [[Helper defaultHelper] checkDuty];
-                                }
-                                
-                            }else{
-                                //            [[iToast makeText:@"数据错误"] show];
-                            }
-                            
+                        [self loadDutyScheduleWhithSuccess:^(NSInteger code, id responseObject) {
+                            //这里基本已经处理好了，不用再处理了
+                            [[Helper defaultHelper] checkDuty];
                             if(completeBlock){
                                 completeBlock();
                             }
-                            
                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //                        NSLog(@"error duty = %@",error);
-                            //        [[iToast makeText:@"网络错误"] show];
                             if(completeBlock){
                                 completeBlock();
                             }
                         }];
-
-                        
                         
                     }else{
                         //获取用户信息失败
@@ -171,14 +148,14 @@
                     
                     //查找一个最近的值班日期，如果是24之内查看有没有该本地通知，如果没有就添加通知
                     if(userDutyType != UserDutyTypeDefault){
-                        
-                        model = [[YQDutyModel alloc] init];
-                        model.dutyStringDate = obj[@"date"];
-                        NSArray *dateArray = [model.dutyStringDate componentsSeparatedByString:@"-"];
-                        model.year = [dateArray[0] integerValue];
-                        model.month = [dateArray[1] integerValue];
-                        model.day = [dateArray[2] integerValue];
-                        
+                        if([futureDate isTomorrow]){
+                            model = [[YQDutyModel alloc] init];
+                            model.dutyStringDate = obj[@"date"];
+                            NSArray *dateArray = [model.dutyStringDate componentsSeparatedByString:@"-"];
+                            model.year = [dateArray[0] integerValue];
+                            model.month = [dateArray[1] integerValue];
+                            model.day = [dateArray[2] integerValue];
+                        }
                         *stop = YES;
                     }
 
@@ -267,4 +244,50 @@
     }
 
 }
+
+- (void)loadDutyScheduleWhithSuccess:(void (^)(NSInteger code, id responseObject))success
+                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+
+    //TODO://处理本月最后一天的情况，需要下载下个月的信息
+    //获取值班信息
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate date]];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:[NSString stringWithFormat:@"%@%@&moth=%ld",BaseURL,zhibanMethod,components.month] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        NSDictionary *dic = [result objectFromJSONString];
+        NSInteger code = [dic[@"code"] integerValue];
+        if(code == 1){
+            
+            NSArray *array = dic[@"details"];
+            if(array.count){
+                [[NSUserDefaults standardUserDefaults] setObject:array forKey:[@(components.year*10+components.month) stringValue]];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            if(success){
+                success(1,array);
+            }
+        }else{
+    
+            if(success){
+                success(0,nil);
+            }
+        }
+        
+    } failure:failure];
+
+}
+
++ (BOOL)isNextMonthOfDate:(NSDate *)date{
+    NSDate *today = [NSDate date];
+    if(date.year==today.year){
+        return  date.month-today.month == 1;
+    }else if(date.year-today.year == 1){
+        return date.month-today.month == -11;
+    }
+    return NO;
+}
+
 @end

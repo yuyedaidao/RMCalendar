@@ -21,10 +21,12 @@
 #import "DutyModel.h"
 #import <Masonry.h>
 #import <ReactiveCocoa.h>
-
+#import <Reachability.h>
+#import <DateTools.h>
 
 @interface RMCalendarController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) UIImageView *bgImgView;
 @end
 
 @implementation RMCalendarController
@@ -93,35 +95,11 @@ static NSString *DayCell = @"DayCell";
     
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:KeyChainService];
     if(keychain[KeyChainPassword].length){
-        [[Helper defaultHelper] backUpdateWithBlock:nil];
+        [self loadData];
     }else{
-    
         [self loginView];
     }
 
-    
-    
-//    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-//    localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:-60*60*4];
-//    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-//    localNotification.alertBody = @"少侠，明天有你的值班，切记，切记！";
-//    //设置通知动作按钮的标题
-//    localNotification.alertAction = @"知道了";
-//    //设置提醒的声音，可以自己添加声音文件，这里设置为默认提示声
-//    localNotification.soundName = UILocalNotificationDefaultSoundName;
-//    //设置通知的相关信息，这个很重要，可以添加一些标记性内容，方便以后区分和获取通知的信息
-////    NSDictionary *infoDic = @{
-////                              @"dutyStringDate":model.dutyStringDate,
-////                              @"dutyDate":@(dutyIntDate)
-////                              };
-////    localNotification.userInfo = infoDic;
-//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-//    NSLog(@"state = %d",[UIApplication  sharedApplication].applicationState);
-//    if([UIApplication  sharedApplication].applicationState == UIApplicationStateActive){
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"值班通知" message:localNotification.alertBody delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
-//        [alert show];
-//    }
-    
 }
 
 #pragma mark selector
@@ -155,11 +133,10 @@ static NSString *DayCell = @"DayCell";
 - (void)prepareView{
     
     
-//    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    self.bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
 //    bgImgView.image = [UIImage imageNamed:@"morning"];
-//    bgImgView.contentMode = UIViewContentModeScaleAspectFill;
-//    [self.view addSubview:bgImgView];
-//    [self.view sendSubviewToBack:bgImgView];
+    self.bgImgView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:self.bgImgView];
     
     UIButton *logout = [UIButton buttonWithType:UIButtonTypeCustom];
     [logout setTitle:@"退出" forState:UIControlStateNormal];
@@ -197,73 +174,23 @@ static NSString *DayCell = @"DayCell";
 //    self.collectionView.backgroundView = self.view;
 //    self.collectionView.backgroundColor = [UIColor clearColor];
    
-    
     self.calendarMonth = [self getMonthArrayOfDays:self.days showType:self.type isEnable:self.isEnable modelArr:nil];
-    
-    
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self loadData];
+        [self loadDataFromNet];
     }];
    
 
 }
-- (void)loadData{
-    
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate date]];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 
-    [manager GET:[NSString stringWithFormat:@"%@%@&moth=%ld",BaseURL,zhibanMethod,components.month] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-     
-        NSDictionary *dic = [result objectFromJSONString];
-        if([dic[@"code"] integerValue] == 1){
-            if(!self.dataArray){
-                self.dataArray = [NSMutableArray array];
-            }
-            [self.dataArray removeAllObjects];
-            
-            NSArray *array = dic[@"details"];
-            if(array.count){
-                [[NSUserDefaults standardUserDefaults] setObject:array forKey:[@(components.year*10+components.month) stringValue]];
-            }
+- (void)loadDataFromNet{
+   
+    [[Helper defaultHelper] loadDutyScheduleWhithSuccess:^(NSInteger code, id responseObject) {
+        if(code == 1){
+            NSArray *array = responseObject;
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-                    
-                    
-                    YQDutyModel *model = [[YQDutyModel alloc] init];
-//                    DutyModel *model = [[DutyModel alloc] init];
-                    
-                    NSString *morning = obj[@"zaoban"];
-                    NSString *weekend = obj[@"zhoumoban"];
-                    NSString *night = obj[@"wanban"];
-                    if(weekend.length){
-                        model.type = YQDutyTypeWeekend;
-                        model.morningUserArray = [weekend componentsSeparatedByString:@","];
-                    }else{
-                        model.type = YQDutyTypeWorkday;
-                        model.morningUserArray = [morning componentsSeparatedByString:@","];
-                    }
-                    model.nightUserArray = [night componentsSeparatedByString:@","];
-                    if([weekend containsString:[Helper defaultHelper].user.name]){
-                        model.userDutyType = UserDutyTypeWeekend;
-                    }else if([night containsString:[Helper defaultHelper].user.name]){
-                        model.userDutyType = UserDutyTypeNight;
-                    }else if([morning containsString:[Helper defaultHelper].user.name]){
-                        model.userDutyType = UserDutyTypeMorning;
-                    }else{
-                        model.userDutyType = UserDutyTypeDefault;
-                    }
-                    
-                    NSArray *dateArray = [obj[@"date"] componentsSeparatedByString:@"-"];
-                    model.year = [dateArray[0] integerValue];
-                    model.month = [dateArray[1] integerValue];
-                    model.day = [dateArray[2] integerValue];
-                    
-                    [self.dataArray addObject:model];
-                }];
                 
+                [self wrapData:array];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.calendarMonth = [self getMonthArrayOfDays:self.days showType:self.type isEnable:self.isEnable modelArr:self.dataArray];
                     [self.collectionView reloadData];
@@ -272,22 +199,67 @@ static NSString *DayCell = @"DayCell";
                     [[Helper defaultHelper] checkDuty];
                 });
             });
-            
-            
-            
-        }else{
-//            [[iToast makeText:@"数据错误"] show];
+
         }
         
-      
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error duty = %@",error);
-//        [[iToast makeText:@"网络错误"] show];
+        [[Helper defaultHelper] checkDuty];
     }];
 
 }
-
+- (void)loadData{
+    
+    //先从本地获取数据 然后再去网络获取
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate date]];
+    NSArray *oldArray = [[NSUserDefaults standardUserDefaults] objectForKey:[@(components.year*10+components.month) stringValue]];
+    if(oldArray){
+        [self wrapData:oldArray];
+        self.calendarMonth = [self getMonthArrayOfDays:self.days showType:self.type isEnable:self.isEnable modelArr:self.dataArray];
+        [self.collectionView reloadData];
+    }
+    
+    [self loadDataFromNet];
+    
+}
+- (void)wrapData:(NSArray *)array{
+    if(!self.dataArray){
+        self.dataArray = [NSMutableArray array];
+    }
+    [self.dataArray removeAllObjects];
+    
+    [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+        
+        YQDutyModel *model = [[YQDutyModel alloc] init];
+     
+        NSString *morning = obj[@"zaoban"];
+        NSString *weekend = obj[@"zhoumoban"];
+        NSString *night = obj[@"wanban"];
+        if(weekend.length){
+            model.type = YQDutyTypeWeekend;
+            model.morningUserArray = [weekend componentsSeparatedByString:@","];
+        }else{
+            model.type = YQDutyTypeWorkday;
+            model.morningUserArray = [morning componentsSeparatedByString:@","];
+        }
+        model.nightUserArray = [night componentsSeparatedByString:@","];
+        if([weekend containsString:[Helper defaultHelper].user.name]){
+            model.userDutyType = UserDutyTypeWeekend;
+        }else if([night containsString:[Helper defaultHelper].user.name]){
+            model.userDutyType = UserDutyTypeNight;
+        }else if([morning containsString:[Helper defaultHelper].user.name]){
+            model.userDutyType = UserDutyTypeMorning;
+        }else{
+            model.userDutyType = UserDutyTypeDefault;
+        }
+        
+        NSArray *dateArray = [obj[@"date"] componentsSeparatedByString:@"-"];
+        model.year = [dateArray[0] integerValue];
+        model.month = [dateArray[1] integerValue];
+        model.day = [dateArray[2] integerValue];
+        
+        [self.dataArray addObject:model];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

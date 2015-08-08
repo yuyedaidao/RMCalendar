@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import <AFNetworking.h>
 /*
  
  {
@@ -209,4 +210,12 @@
 - (void)backUpdate;
 - (void)backUpdateWithBlock:(void (^)(void))completeBlock;
 - (void)checkDuty;
+/**
+ *  明天是不是下个月的第一天
+ *
+ *  @return 
+ */
++ (BOOL)isNextMonthOfDate:(NSDate *)date;
+- (void)loadDutyScheduleWhithSuccess:(void (^)(NSInteger code, id responseObject))success
+                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 @end

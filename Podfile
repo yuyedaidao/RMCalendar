@@ -1,4 +1,4 @@
-platform :ios, "6.0"
+platform :ios, "7.0"
 
 pod 'AFNetworking', '~> 2.0'
 pod 'pop', '~> 1.0.7'
@@ -13,6 +13,9 @@ pod 'ReactiveCocoa'
 pod 'UITextField+Shake', '~> 1.1'
 pod 'Masonry', '~> 0.6.2'
 pod 'DateTools'
+pod 'Reachability', '~> 3.2'
+pod 'JTMaterialTransition', '~> 1.0'
+pod 'RZTransitions', '~> 1.0'
 
 target :RMCalendarTests, :exclusive => true do
   # pod 'Kiwi'

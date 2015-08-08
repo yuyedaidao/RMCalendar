@@ -24,10 +24,12 @@ PODS:
   - IQKeyboardManager (3.2.4)
   - iToast (0.0.1)
   - JSONKit-NoWarning (1.2)
+  - JTMaterialTransition (1.0.4)
   - Masonry (0.6.2)
   - MBProgressHUD (0.9.1)
   - MJRefresh (2.3.2)
   - pop (1.0.7)
+  - Reachability (3.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -35,6 +37,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - RZTransitions (1.1.1)
   - UICKeyChainStore (2.0.6)
   - UITextField+Shake (1.1.1)
 
@@ -44,11 +47,14 @@ DEPENDENCIES:
   - IQKeyboardManager (~> 3.2.4)
   - iToast (~> 0.0.1)
   - JSONKit-NoWarning (~> 1.2)
+  - JTMaterialTransition (~> 1.0)
   - Masonry (~> 0.6.2)
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh (~> 2.3.2)
   - pop (~> 1.0.7)
+  - Reachability (~> 3.2)
   - ReactiveCocoa
+  - RZTransitions (~> 1.0)
   - UICKeyChainStore
   - UITextField+Shake (~> 1.1)
 
@@ -58,11 +64,14 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   iToast: df147188215cc3293bd4366822833f2862fec451
   JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
+  JTMaterialTransition: bebb2567eee81224becf3945695a08ea134468e3
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: 0f6f5e8387970607c26080b44058b229a23065d7
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  RZTransitions: d3a1ad40f580eaee5aeecd55688e4280e8dca976
   UICKeyChainStore: c5719c814e8bd69e74e4a0fc09daf8f4d6257a59
   UITextField+Shake: 7b54838133d2242b90bd40e24d8de2a50a31964b
 
