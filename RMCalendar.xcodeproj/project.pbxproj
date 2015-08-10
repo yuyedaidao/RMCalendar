@@ -14,6 +14,10 @@
 		219792FD1B6F46640005EFC8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219792FB1B6F46640005EFC8 /* LoginViewController.m */; };
 		219792FE1B6F46640005EFC8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219792FC1B6F46640005EFC8 /* LoginViewController.xib */; };
 		219793091B6F71210005EFC8 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 219793081B6F71210005EFC8 /* Constants.h */; };
+		5564E23B1B763BD4007699FF /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5564E23A1B763BD4007699FF /* NotificationCenter.framework */; };
+		5564E2411B763BD4007699FF /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5564E2401B763BD4007699FF /* TodayViewController.m */; };
+		5564E2431B763BD4007699FF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5564E2421B763BD4007699FF /* MainInterface.storyboard */; };
+		5564E2461B763BD4007699FF /* TodayDutyExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5564E2391B763BD4007699FF /* TodayDutyExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		55696D2F1B6E5715006F8A34 /* YQDutyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55696D2E1B6E5715006F8A34 /* YQDutyModel.m */; };
 		D534C7B2BB09C68D5AFBBFF0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D60C1DF8267FFB285847EF /* libPods.a */; };
 		EE4A4FF51B43E881004B6590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A4FF41B43E881004B6590 /* main.m */; };
@@ -55,6 +59,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5564E2441B763BD4007699FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE4A4FE71B43E881004B6590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5564E2381B763BD4007699FF;
+			remoteInfo = TodayDutyExtension;
+		};
 		EE4A50091B43E881004B6590 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE4A4FE71B43E881004B6590 /* Project object */;
@@ -63,6 +74,20 @@
 			remoteInfo = RMCalendar;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5564E24A1B763BD4007699FF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5564E2461B763BD4007699FF /* TodayDutyExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2162FB571B70B0E0006C1230 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
@@ -76,6 +101,13 @@
 		219792FB1B6F46640005EFC8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		219792FC1B6F46640005EFC8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		219793081B6F71210005EFC8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5564E2391B763BD4007699FF /* TodayDutyExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayDutyExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5564E23A1B763BD4007699FF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		5564E23E1B763BD4007699FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5564E23F1B763BD4007699FF /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		5564E2401B763BD4007699FF /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		5564E2421B763BD4007699FF /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		5564E24C1B764564007699FF /* RMCalendar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RMCalendar.entitlements; sourceTree = "<group>"; };
 		55696D2D1B6E5715006F8A34 /* YQDutyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQDutyModel.h; sourceTree = "<group>"; };
 		55696D2E1B6E5715006F8A34 /* YQDutyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQDutyModel.m; sourceTree = "<group>"; };
 		68D60C1DF8267FFB285847EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +175,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5564E2361B763BD4007699FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5564E23B1B763BD4007699FF /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EE4A4FEC1B43E881004B6590 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,8 +224,28 @@
 			isa = PBXGroup;
 			children = (
 				68D60C1DF8267FFB285847EF /* libPods.a */,
+				5564E23A1B763BD4007699FF /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5564E23C1B763BD4007699FF /* TodayDutyExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5564E23F1B763BD4007699FF /* TodayViewController.h */,
+				5564E2401B763BD4007699FF /* TodayViewController.m */,
+				5564E2421B763BD4007699FF /* MainInterface.storyboard */,
+				5564E23D1B763BD4007699FF /* Supporting Files */,
+			);
+			path = TodayDutyExtension;
+			sourceTree = "<group>";
+		};
+		5564E23D1B763BD4007699FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5564E23E1B763BD4007699FF /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		EE4A4FE61B43E881004B6590 = {
@@ -193,6 +253,7 @@
 			children = (
 				EE4A4FF11B43E881004B6590 /* RMCalendar */,
 				EE4A500B1B43E881004B6590 /* RMCalendarTests */,
+				5564E23C1B763BD4007699FF /* TodayDutyExtension */,
 				EE4A4FF01B43E881004B6590 /* Products */,
 				10634D00866BEB13D912428E /* Pods */,
 				4AD8FCECABC0665DB49C84F6 /* Frameworks */,
@@ -204,6 +265,7 @@
 			children = (
 				EE4A4FEF1B43E881004B6590 /* RMCalendar.app */,
 				EE4A50081B43E881004B6590 /* RMCalendarTests.xctest */,
+				5564E2391B763BD4007699FF /* TodayDutyExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +273,7 @@
 		EE4A4FF11B43E881004B6590 /* RMCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				5564E24C1B764564007699FF /* RMCalendar.entitlements */,
 				219793061B6F70150005EFC8 /* Common */,
 				EEDB721E1B4A4A0C003F6AC6 /* MJExtension */,
 				EE4A50181B43E8EF004B6590 /* Class */,
@@ -373,6 +436,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5564E2381B763BD4007699FF /* TodayDutyExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5564E2491B763BD4007699FF /* Build configuration list for PBXNativeTarget "TodayDutyExtension" */;
+			buildPhases = (
+				5564E2351B763BD4007699FF /* Sources */,
+				5564E2361B763BD4007699FF /* Frameworks */,
+				5564E2371B763BD4007699FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayDutyExtension;
+			productName = TodayDutyExtension;
+			productReference = 5564E2391B763BD4007699FF /* TodayDutyExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EE4A4FEE1B43E881004B6590 /* RMCalendar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE4A50121B43E881004B6590 /* Build configuration list for PBXNativeTarget "RMCalendar" */;
@@ -382,10 +462,12 @@
 				EE4A4FEC1B43E881004B6590 /* Frameworks */,
 				EE4A4FED1B43E881004B6590 /* Resources */,
 				B6BF4B7173A3D3792FBEAEA1 /* Copy Pods Resources */,
+				5564E24A1B763BD4007699FF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5564E2451B763BD4007699FF /* PBXTargetDependency */,
 			);
 			name = RMCalendar;
 			productName = RMCalendar;
@@ -419,10 +501,17 @@
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "迟浩东";
 				TargetAttributes = {
+					5564E2381B763BD4007699FF = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = GP4MMMES25;
+					};
 					EE4A4FEE1B43E881004B6590 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = GP4MMMES25;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -449,11 +538,20 @@
 			targets = (
 				EE4A4FEE1B43E881004B6590 /* RMCalendar */,
 				EE4A50071B43E881004B6590 /* RMCalendarTests */,
+				5564E2381B763BD4007699FF /* TodayDutyExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5564E2371B763BD4007699FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5564E2431B763BD4007699FF /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EE4A4FED1B43E881004B6590 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -521,6 +619,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5564E2351B763BD4007699FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5564E2411B763BD4007699FF /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EE4A4FEB1B43E881004B6590 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -565,6 +671,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5564E2451B763BD4007699FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5564E2381B763BD4007699FF /* TodayDutyExtension */;
+			targetProxy = 5564E2441B763BD4007699FF /* PBXContainerItemProxy */;
+		};
 		EE4A500A1B43E881004B6590 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EE4A4FEE1B43E881004B6590 /* RMCalendar */;
@@ -592,6 +703,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5564E2471B763BD4007699FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8EBL68KM57)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8EBL68KM57)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TodayDutyExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5564E2481B763BD4007699FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8EBL68KM57)";
+				INFOPLIST_FILE = TodayDutyExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		EE4A50101B43E881004B6590 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -609,8 +749,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 叶庆 王 (FJ7ELRLBXG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 叶庆 王 (FJ7ELRLBXG)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -653,8 +793,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 叶庆 王 (FJ7ELRLBXG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 叶庆 王 (FJ7ELRLBXG)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -679,6 +819,7 @@
 			baseConfigurationReference = AE8BF96DAF43EB0F9EA76D5F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RMCalendar/RMCalendar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8EBL68KM57)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8EBL68KM57)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -689,6 +830,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -698,7 +840,9 @@
 			baseConfigurationReference = 81AC6753050F3FF468FB8A1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RMCalendar/RMCalendar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: // / (8EBL68KM57)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: // / (8EBL68KM57)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -707,6 +851,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -715,6 +860,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 叶庆 王 (FJ7ELRLBXG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -734,6 +880,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 叶庆 王 (FJ7ELRLBXG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -748,6 +895,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5564E2491B763BD4007699FF /* Build configuration list for PBXNativeTarget "TodayDutyExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5564E2471B763BD4007699FF /* Debug */,
+				5564E2481B763BD4007699FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EE4A4FEA1B43E881004B6590 /* Build configuration list for PBXProject "RMCalendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
