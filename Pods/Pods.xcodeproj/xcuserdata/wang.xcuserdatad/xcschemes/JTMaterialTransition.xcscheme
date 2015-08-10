@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7D257890D9DB547830435FE"
+               BlueprintIdentifier = "52686FA3482130478CCAE6B4"
                BuildableName = "libJTMaterialTransition.a"
                BlueprintName = "JTMaterialTransition"
                ReferencedContainer = "container:Pods.xcodeproj">
